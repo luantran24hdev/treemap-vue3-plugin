@@ -40,7 +40,7 @@ const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
 
 
-const nodes = computed( () => hierarchy({name : "some name", children : props.data}) );
+const nodes = computed( () => props.data ? [] : hierarchy({name : "some name", children : props.data}) );
 
 </script>
 <template>
