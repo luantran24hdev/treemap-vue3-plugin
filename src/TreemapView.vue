@@ -49,6 +49,10 @@ const nodes = computed( () => props.data ? [] : hierarchy({name : "some name", c
     <pre>
       {{nodes}}
     </pre>
+
+    <pre v-if="data">
+      {{ hierarchy({name : "some name", children : data}) }}
+    </pre>
     <svg
       ref="svg"
       xmlns="http://www.w3.org/2000/svg"
