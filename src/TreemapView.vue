@@ -40,7 +40,7 @@ const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
 
 
-const nodes = computed( () => props.data ? [] : hierarchy({name : "some name", children : props.data}) );
+const nodes = computed( () => ! props.data ? [] : hierarchy({name : "some name", children : props.data}) );
 
 </script>
 <template>
@@ -48,10 +48,6 @@ const nodes = computed( () => props.data ? [] : hierarchy({name : "some name", c
     <h1></h1>
     <pre>
       {{nodes}}
-    </pre>
-
-    <pre v-if="data">
-      {{ hierarchy({name : "some name", children : data}) }}
     </pre>
     <svg
       ref="svg"
