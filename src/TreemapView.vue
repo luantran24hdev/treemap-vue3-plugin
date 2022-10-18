@@ -54,6 +54,7 @@ console.log("fuck:", nodes);
 <template>
   <div :class="`gf_${chartName}_container`">
     <h1></h1>
+    <pre>{{nodes}}</pre>
     <svg
       ref="svg"
       xmlns="http://www.w3.org/2000/svg"
