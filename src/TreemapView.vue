@@ -14,7 +14,7 @@ const props = defineProps({
   width      : Number, 
   height     : Number, 
   background : String,
-  data       : Array,
+  data,
   margin     : Object,
   color      : String
 });
