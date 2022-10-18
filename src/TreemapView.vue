@@ -46,7 +46,7 @@ const nodes = hierarchy({
       ]
     }
   ]
-})
+}).sum( d => d.value)
 
 </script>
 <template>
