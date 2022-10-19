@@ -11,7 +11,7 @@ import { hierarchy, treemap} from "d3-hierarchy";
  * 
  */
 const props = defineProps([ "width", "height", "background", "data", "margin", "color"]);
-const chartName = "simplestack";
+const chartName = "treemap";
 /**
  * CONFIG
  * 
