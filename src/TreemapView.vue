@@ -42,6 +42,7 @@ const items  = computed( () => !nodes.value ? null : tree.value(nodes.value.sum(
 <template>
   <div :class="`gf_${chartName}_container`">
     <h1></h1>
+    <pre>{{items}}</pre>
     <svg
       ref="svg"
       xmlns="http://www.w3.org/2000/svg"
