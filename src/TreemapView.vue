@@ -33,28 +33,16 @@ const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
 
 
-const nodes = hierarchy({
-  name: "root",
-  children: [
-    {name: "child #1"},
-    {
-      name: "child #2",
-      children: [
-        {name: "grandchild #1"},
-        {name: "grandchild #2"},
-        {name: "grandchild #3"}
-      ]
-    }
-  ]
-})
+const nodes   = computed( () => !props.data ? null : hierarchy({ name: "root", children: props.data}))
+const treemap = computed( () => treemap().size([width.value, height.value]).padding(3).paddingOuter(10) )
+const items   = computed( () => !nodes.value ? null : treemap.value(nodes.value.sum( d => d.value) ).descendants() )
 
-console.log("fuck:", nodes);
 
 </script>
 <template>
   <div :class="`gf_${chartName}_container`">
     <h1></h1>
-    <pre>{{nodes}}</pre>
+    <pre>{{items}}</pre>
     <svg
       ref="svg"
       xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +55,10 @@ console.log("fuck:", nodes);
       stroke-linecap="round"
       stroke-linejoin="round"
       :class="`gf_${chartName}_svg`">
+
+      <g v-if="items">
+        
+      </g>
     </svg>
   </div>
 </template>
