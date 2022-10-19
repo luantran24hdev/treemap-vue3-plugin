@@ -4,7 +4,7 @@
  * 
  */
 import { ref, computed } from "vue";
-import {treemap, hierarchy} from "d3-hierarchy";
+import { hierarchy, treemap} from "d3-hierarchy";
 
 /**
  * PROPERTIES
@@ -33,16 +33,15 @@ const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
 
 
-const nodes   = computed( () => !props.data ? null : hierarchy({ name: "root", children: props.data}))
-const treemap = computed( () => treemap().size([width.value, height.value]).padding(3).paddingOuter(10) )
-const items   = computed( () => !nodes.value ? null : treemap.value(nodes.value.sum( d => d.value) ).descendants() )
+const nodes  = computed( () => !props.data ? null : hierarchy({ name: "root", children: props.data}))
+const tree   = computed( () => treemap().size([width.value, height.value]).padding(3).paddingOuter(10) )
+const items  = computed( () => !nodes.value ? null : tree.value(nodes.value.sum( d => d.value) ).descendants() )
 
 
 </script>
 <template>
   <div :class="`gf_${chartName}_container`">
     <h1></h1>
-    <pre>{{items}}</pre>
     <svg
       ref="svg"
       xmlns="http://www.w3.org/2000/svg"
