@@ -34,7 +34,7 @@ const color      = computed( () => props.color || defaultColor.value)
 
 
 const nodes  = computed( () => !props.data ? null : hierarchy({ name: "root", children: props.data}))
-const tree   = computed( () => treemap().size([width.value, height.value]).padding(3).paddingOuter(10) )
+const tree   = computed( () => treemap().size([width.value, height.value]).padding(10).paddingOuter(0) )
 const items  = computed( () => !nodes.value ? null : tree.value(nodes.value.sum( d => d.value) ).descendants() )
 
 
