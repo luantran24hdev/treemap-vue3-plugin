@@ -1,5 +1,5 @@
 {
-  "name": "vue-treemap-plugin",
+  "name": "@elcoruco/vue-treemap-plugin",
   "version": "1.0.0",
   "description": "Cosa para treemaps",
   "main": "./dist/TreemapPlugin.js",
